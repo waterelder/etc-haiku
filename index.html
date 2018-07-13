@@ -3,31 +3,27 @@
 		<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
 		<link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono" rel="stylesheet">
 	</head>
-	<body style="font-family: monospace;">
-		<div style="display:flex; align-items: center; flex-direction: column;">
+	<body>
+		<div class="main-container">
 			<h1>Happy Birthday!!!</h1>
 			<h3>This Haiku and ASCII-pic are stored in ETC blockchain, and will be there forever:</h3>
-			<div style="zoom: 0.5;
-						"margin-top: 30px;
-						-ms-zoom: 0.5;
-						-webkit-zoom: 0.5;
-						-moz-transform:  scale(0.5,0.5);
-						-moz-transform-origin: left center;">
-				<div id="ascii">
-
+			<div class="smart-contract-data">
+				<div class="ascii-container">
+					<div id="ascii">
+					</div>
+				</div>
+				<div id="congrats" class="congrats-container">
 				</div>
 			</div>
-			<div style="margin-top: 30px; font-size: 14px; font-weight: bold; font-family: Roboto Mono; line-height: 1.5em; letter-spacing: " id="congrats">
-			</div>
-				<div style="margin-top: 15px">
+				<div class="additional-info-container">
 					<h5>Contract address:
 						<a target="_blank" href="http://gastracker.io/contract/0xA8E920BD1B226B012E4A0891ee3Ea30822f2Bd57">
 							0xA8E920BD1B226B012E4A0891ee3Ea30822f2Bd57
 						</a>
 					</h5>
-					<div style="text-align: center; margin-top: 40px; font-size: 14px; display: flex; justify-content: center;">
+					<div class="github-link ">
 						<div>
-						 	<img width="30px" src="https://assets-cdn.github.com/images/modules/open_graph/github-mark.png">
+						 	<img class="github-logo" src="https://assets-cdn.github.com/images/modules/open_graph/github-mark.png">
 						</div>
 						<div>
 							<a target="_blank" href="https://github.com/waterelder/etc-haiku">
@@ -38,6 +34,54 @@
 				</div>
 			</div>
 	</body>
+	<style type="text/css">
+		body {
+			font-family: monospace;
+			background-color: #fcfcfc;
+		}
+		.main-container {
+			display:flex;
+			align-items: center;
+			flex-direction: column;
+		}
+		.additional-info-container {
+			margin-top: 15px
+		}
+		.ascii-container {
+			zoom: 0.5;
+			margin-top: 30px;
+			-ms-zoom: 0.5;
+			-webkit-zoom: 0.5;
+			-moz-transform:  scale(0.5,0.5);
+			-moz-transform-origin: left center;
+			text-align: center;
+		}
+		.github-link {
+			text-align: center;
+			margin-top: 25px;
+			font-size: 14px;
+			display: flex;
+			justify-content: center;
+		}
+		.github-link .github-logo {
+			width: 30px
+		}
+		.smart-contract-data {
+			background-color: #fff;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding: 20px;
+			border-radius: 10px;
+		}
+		.congrats-container {
+			margin-top: 30px;
+			font-size: 14px;
+			font-weight: bold;
+			font-family: Roboto Mono;
+			line-height: 1.5em;
+		}
+	</style>
 	<script>
 		const ABI = [
 			{
