@@ -107,7 +107,7 @@
 			}
 		];
 		const CONTRACT_ADDRESS = "0xf8F3A67B31c9Ec2695Ca5ED31f47F339A97c36C4";
-		const web3 = new Web3(new Web3.providers.HttpProvider("https://moneyway.xyz:8083"));
+		const web3 = new Web3(new Web3.providers.HttpProvider("https://moneyway.xyz"));
 		web3.eth.defaultAccount = web3.eth.accounts[0];
 		const RomansGreetings = web3.eth.contract(ABI);
 		const greetingsInstance = RomansGreetings.at(CONTRACT_ADDRESS)
