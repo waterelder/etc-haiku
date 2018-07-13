@@ -14,15 +14,15 @@
 						-moz-transform:  scale(0.5,0.5);
 						-moz-transform-origin: left center;">
 				<div id="ascii">
-	  		
+
 				</div>
 			</div>
 			<div style="margin-top: 30px; font-size: 14px; font-weight: bold; font-family: Roboto Mono; line-height: 1.5em; letter-spacing: " id="congrats">
 			</div>
 				<div style="margin-top: 15px">
-					<h5>Contract address: 
-						<a target="_blank" href="http://gastracker.io/contract/0xf8F3A67B31c9Ec2695Ca5ED31f47F339A97c36C4">
-							0xf8F3A67B31c9Ec2695Ca5ED31f47F339A97c36C4
+					<h5>Contract address:
+						<a target="_blank" href="http://gastracker.io/contract/0xA8E920BD1B226B012E4A0891ee3Ea30822f2Bd57">
+							0xA8E920BD1B226B012E4A0891ee3Ea30822f2Bd57
 						</a>
 					</h5>
 					<div style="text-align: center; margin-top: 40px; font-size: 14px; display: flex; justify-content: center;">
@@ -32,7 +32,7 @@
 						<div>
 							<a target="_blank" href="https://github.com/waterelder/etc-haiku">
 								<span>GitHub</span>
-							</a>	
+							</a>
 						</div>
 					</div>
 				</div>
@@ -41,17 +41,12 @@
 	<script>
 		const ABI = [
 			{
-				"constant": true,
+				"constant": false,
 				"inputs": [],
-				"name": "getASCIIPic",
-				"outputs": [
-					{
-						"name": "",
-						"type": "string"
-					}
-				],
+				"name": "lock",
+				"outputs": [],
 				"payable": false,
-				"stateMutability": "view",
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -66,20 +61,6 @@
 				"outputs": [],
 				"payable": false,
 				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [],
-				"name": "getCongrats",
-				"outputs": [
-					{
-						"name": "",
-						"type": "string"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -115,9 +96,51 @@
 				"payable": false,
 				"stateMutability": "nonpayable",
 				"type": "constructor"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "checkIsLocked",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "getASCIIPic",
+				"outputs": [
+					{
+						"name": "",
+						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "getCongrats",
+				"outputs": [
+					{
+						"name": "",
+						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
 			}
 		];
-		const CONTRACT_ADDRESS = "0xf8F3A67B31c9Ec2695Ca5ED31f47F339A97c36C4";
+		const CONTRACT_ADDRESS = "0xA8E920BD1B226B012E4A0891ee3Ea30822f2Bd57";
 		const web3 = new Web3(new Web3.providers.HttpProvider("https://moneyway.xyz"));
 		web3.eth.defaultAccount = web3.eth.accounts[0];
 		const RomansGreetings = web3.eth.contract(ABI);
