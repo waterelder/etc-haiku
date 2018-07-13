@@ -1,0 +1,122 @@
+<html>
+	<head>
+		<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+	</head>
+	<body style="font-family: monospace;">
+		<div style="display:flex; align-items: center; flex-direction: column;">
+			<h1>Happy Birthday!!!</h1>
+			<h3>This Haiku is stored in ETC blockchain, and will be there forever:</h3>
+			<div style="zoom: 0.5;
+						"margin-top: 30px;
+						-ms-zoom: 0.5;
+						-webkit-zoom: 0.5;
+						-moz-transform:  scale(0.5,0.5);
+						-moz-transform-origin: left center;">
+				<div id="ascii">
+	  		
+				</div>
+			</div>
+			<div style="margin-top: 30px; font-size: 14px; font-weight: bold;" id="congrats">
+			</div>
+				<div style="margin-top: 15px">
+					<h5>Contract address: 
+						<a target="_blank" href="http://gastracker.io/contract/0xf8F3A67B31c9Ec2695Ca5ED31f47F339A97c36C4">
+							0xf8F3A67B31c9Ec2695Ca5ED31f47F339A97c36C4
+						</a>
+					</h5>
+				</div>
+			</div>
+	</body>
+	<script>
+		const ABI = [
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "getASCIIPic",
+				"outputs": [
+					{
+						"name": "",
+						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "newPic",
+						"type": "string"
+					}
+				],
+				"name": "setASCIIPicture",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "getCongrats",
+				"outputs": [
+					{
+						"name": "",
+						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "newCongrats",
+						"type": "string"
+					}
+				],
+				"name": "setCongrats",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			}
+		];
+		const CONTRACT_ADDRESS = "0xf8F3A67B31c9Ec2695Ca5ED31f47F339A97c36C4";
+		const web3 = new Web3(new Web3.providers.HttpProvider("http://moneyway.xyz:8083"));
+		web3.eth.defaultAccount = web3.eth.accounts[0];
+		const RomansGreetings = web3.eth.contract(ABI);
+		const greetingsInstance = RomansGreetings.at(CONTRACT_ADDRESS)
+		const ready = () => {
+		    const congratsDiv = document.getElementById('congrats');
+		    congratsDiv.innerHTML = greetingsInstance.getCongrats()
+		    const asciiDiv = document.getElementById('ascii');
+		    asciiDiv.innerHTML = greetingsInstance.getASCIIPic()
+		}
+  		document.addEventListener("DOMContentLoaded", ready);
+	</script>
+</html>
